@@ -7,8 +7,8 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-GOOGLE_API_KEY = ("AIzaSyAC48izWHV5M0QEfJ7n9ShaWrJ4hRgoN24") #GOOGLE_API_KEY
-PIXABAY_API_KEY = ("19270852-1595b8e7d60a709f700517108") #PIXABAY_API_KEY
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY")
 
 if not GOOGLE_API_KEY or not PIXABAY_API_KEY:
     raise RuntimeError("APIキーが設定されていません")
