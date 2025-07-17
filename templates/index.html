@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フルーツ紹介サービス</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🍓 フルーツ好きのためのサービス 🍍</h1>
+    </header>
+
+    <form method="POST">
+      <input type="text" name="fruit" placeholder="例：マンゴー" required>
+      <button type="submit">🍒 紹介して！</button>
+    </form>
+
+    {% if fruit %}
+    <div class="card">
+      <h2>「{{ fruit }}」の紹介</h2>
+      <p>{{ description }}</p>
+      {% if image_url %}
+        <img src="{{ image_url }}" alt="{{ fruit }}" class="fruit-image">
+      {% endif %}
+      {% if ussy_comment %}
+      <div class="ussy-comment">
+        ウッシー：{{ ussy_comment }}
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="seasonal">
+      <h3>今月のおすすめフルーツ🍓</h3>
+      <p>{{ seasonal_fruit }}</p>
+    </div>
+
+    <footer>
+      <p>フルーツ好きのためのサービス &copy; 2025 - Shun Ushioda</p>
+    </footer>
+  </div>
+</body>
+</html>
